@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp  chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 85vh;
+            width: 21%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            position: relative;
+            top: 80px;
+            left: 5;  
+        }
+        .name{
+            width: 100;
+            height: 23vh;
+            border: 1px solid black;
+            background-color: rgba(0, 128, 0, 0.872);
+            position: relative;
+            z-index: 10;
+        }
+        .chat{
+            position:relative;
+            padding-top: 5px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            overflow: scroll;
+            scrollbar-width: none;
+            background-color: bisque;
+            background-image: url(bg1.jpg);
+        }
+        .msgbox{
+            border: 0.5px solid black;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            bottom: 0px;
+            height: 22vh;
+            width: 100%;
+            display: inline-block;
+        }
+
+
+        p,img{
+            display: inline-block;
+        }
+        .leftarrow{
+            color: rgb(216, 221, 225);
+            position: absolute;
+            left: 2px;
+            padding: 0;
+            font-size: 15px;
+        }
+        .pro{
+            position: absolute;
+            width: 19px;
+            border-radius: 50%;
+            top: 5px;
+            left: 25px;
+        }
+        .pname{
+            position: absolute;
+            top: 3px;
+            left: 40px;
+            color: aliceblue;
+            padding: 11px;
+            margin-top: 0;
+            margin-left: 0;
+        }
+        i{
+            color: aliceblue;
+            position: absolute;
+            top: 15px;
+            right: 80px;
+        }
+        #call{
+            color: aliceblue;
+            margin: 0;
+            position: absolute;
+            top: 15px;
+            right: 40px;
+        }
+        .dots3{
+            color: aliceblue;
+            margin: 0;
+            position: absolute;
+            top: 14px;
+            right: 20px;
+            font-size: 18px;
+        }
+        
+
+        .date{
+            position: sticky;
+            left: 40%;
+            top: 5px;
+            z-index: 10;
+            border-radius: 3px;
+            background-color: rgb(243, 239, 234);
+            align-items: center;
+            text-align: center;
+            margin: 5px;
+            width: 65px;
+        }
+
+        .sent{
+            min-width: 35%;
+            max-width: 65%;
+            padding: 1px;
+            padding-right: 10px;
+            padding-left: 5px;
+            border: 1px solid black;
+            position: relative;
+            margin: 1px 1px 4px 1px;
+            border-radius: 5px;
+            align-self: flex-end;
+            background-color: #d5f8baf3;
+
+        }
+        .recieved{
+            min-width: 20%;
+            max-width: 65%;
+            padding: 1px;
+            padding-left: 5px;
+            padding-right: 15px;
+            border: 1px solid black;
+            position: relative;
+            margin: 1px 1px 4px 1px;
+            border-radius: 5px;
+            align-self: flex-start;
+            background-color: rgb(255, 254, 252);
+
+        }
+        
+        .text{
+            display: block;
+            font-size: 16px;
+            padding-top: 1px;
+            padding-left: 1px;
+            padding-bottom: 3.25px;
+            margin-bottom: 5px;
+            margin-top: 0px;
+        }
+        .time{
+            position: absolute;
+            bottom: 0px;
+            right: 2px;
+            font-size: 10px;
+            margin-top: 5px;
+            margin-right: 0px;
+            padding-top: 5px;
+            padding-bottom: 0px;
+            padding-right: 0px;
+
+        }
+        
+        .raju{
+            
+            margin-bottom: 5px;
+        }
+        
+        .pic1{
+            width: 150px;
+        }
+        
+        .emoji{
+            color: black;
+            width: 20px;
+            padding-left: 5px;
+            padding-right: 2px;
+            align-self: flex-start;
+
+        }
+        .paper{
+            width: 20px;
+            padding-left: 5px;
+            align-self: flex-start;
+        }
+        .microphone{
+            width: 20px;
+            padding-left: 2px;
+            align-self: flex-end;
+        }
+        .sentpic{
+            width: 20px;
+            padding-left: 3px;
+            align-self: flex-end;
+        }
+        input{
+            border: none;
+            padding-left: 10px;
+            width: 60%;
+            height: 32%;
+        }
+        .emoji, .microphone, input, .paper{
+            padding-top: 9px;
+        }
+
+
+        
+
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="name">
+            <p class="leftarrow">&larr;</p>
+            <img src="profile.jpg.jpg" class="pro">
+            <p class="pname">venkat</p>
+            <i class="fa-solid fa-video"></i>
+            <p id="call" class="fa-solid fa-phone"></p>
+            <p class="dots3">&#8942;</p>
+        </div> 
+        
+        <div class="chat">
+            <span class="date">29th July</span>
+            <div class="message sent">
+                <span class="text">Hi </span>
+                <span class="time">9:45 pm </span>
+            </div>
+            <div class="message sent">
+                <span class="text">is This venkat ? &nbsp;</span>
+                <span class="time">9:45 pm </span>
+            </div>
+            
+
+            <div class="message recieved">
+                <span class="text">Yes </span>
+                <span class="time">9:50 pm</span>
+            </div>
+
+            <div class="message recieved">
+                <span class="text">who is this ? </span>
+                <span class="time">9:50 pm</span>
+            </div>
+
+        <div class="message sent">
+            <span class="text">This is Hari</span>
+            <span class="time">9:55 pm</span>
+        </div>
+        
+            <div class="message recieved">
+                <span class="text">okay </span>
+                <span class="time">9:55 pm</span>
+            </div>
+
+            <div class="message sent">
+                <span class="text">can you please sent your calender task</span>
+                <span class="time">9:56 pm </span>
+            </div>
+
+            <div class="message recieved">
+                <span class="text">Okay Wait </span>
+                <span class="time">9:57 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">Click on the 
+                    <a style="text-decoration: none;" href="https://ramireddy125.github.io/psudo-selectors/calender.html">link &nbsp;</a>
+                </span>
+                <span class="time">9:58 pm </span>
+            </div>
+
+            <div class="message sent">
+                <span class="text">Okay Thankyou Bro  </span>
+                <span class="time">9:59 pm</span>
+            </div>
+
+            <div class="message recieved">
+                <span class="text">Njoy pandagooo </span>
+                <span class="time">10:05 pm</span>
+            </div>
+
+
+
+
+            <span class="date">30th July</span>
+            <div class="message sent">
+                <span class="text">
+                    <video controls  width="180px" height="100vh" loop>
+                        <source src="raju.mp4"   >
+                    </video>
+                </span>
+                <span class="time">1:20 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">mana raju gade </span>
+                <span class="time">1:25 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">Yeah&#128514;&#128514;</span>
+                <span class="time">1:26 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">
+                    <img src="pic1.jpg" class="pic1">
+                </span>
+                <span class="time">2:10 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">
+                    <img src="pic2.jpg" class="pic1">
+                </span>
+                <span class="time">2:40 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">super&#128558; </span>
+                <span class="time">2:45 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">tq&#128514;</span>
+                <span class="time">2:45 pm</span>
+            </div>
+            
+
+
+
+
+            <span class="date">1st Aug</span>
+            <div class="message sent">
+                <span class="text">Hi</span>
+                <span class="time">8:00 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">Did you have jio cinema premium?</span>
+                <span class="time">8:10 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">Yes, I have</span>
+                <span class="time">8:10 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">can you please give your credentials</span>
+                <span class="time">8:11 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">Yeah! Sure</span>
+                <span class="time">8:13 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">login with my mobile no</span>
+                <span class="time">8:14 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">I will share OTP</span>
+                <span class="time">8:15 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">Okay</span>
+                <span class="time">8:15 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">753951 is the otp</span>
+                <span class="time">8:16 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">done bro</span>
+                <span class="time">8:16 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">Thankyou</span>
+                <span class="time">8:17 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text">&#128077;</span>
+                <span class="time">8:17 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">
+                    <img src="pic3.jpg" class="pic1">
+                </span>
+                <span class="time">8:30 pm</span>
+            </div>
+            <div class="message recieved">
+                <span class="text"> &#128514;</span>
+                <span class="time">8:31 pm</span>
+            </div>
+            <div class="message sent">
+                <span class="text">Hmmm</span>
+                <span class="time">8:32 pm</span>
+            </div>
+
+
+            <span class="date">2nd Aug</span>
+            <div class="message recieved">
+                <span class="text">
+                    <img src="pic4.jpg" class="pic1">
+                </span>
+                <span class="time">7:05 am</span>
+            </div>
+            <div class="message sent">
+                <span class="text"> &#128514;</span>
+                <span class="time">7:07 am</span>
+            </div><div class="message recieved">
+                <span class="text">&#128077;</span>
+                <span class="time">7:07 am</span>
+            </div>
+        </div>
+
+        <div class="msgbox">
+           <span><img src="happy.png" class="emoji"></span>
+           <span class="textbox">
+                <input type="text" placeholder="Type a message">
+           </span>
+           <span><img src="paper-clip.png" class="paper"></span>
+           <span><img src="microphone.png" class="microphone"></span>
+           <span><img src="sent.png" class="sentpic"></span>
+        </div>
+
+
+
+    </div>
+    
+</body>
+</html>
